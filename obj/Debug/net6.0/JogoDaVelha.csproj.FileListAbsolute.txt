@@ -1,0 +1,5 @@
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.csproj.AssemblyReference.cache
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.AssemblyInfoInputs.cache
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.AssemblyInfo.cs
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.csproj.CoreCompileInputs.cache
