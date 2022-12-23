@@ -16,22 +16,37 @@ namespace JogoDaVelha
 
         public void AdicionarJogador(List<string> names, List<string> nickNames, List<int> ages, List<string> cpfs)
         {
-            Console.WriteLine("Comece informando aqui abaixo a quantidade de jogadores deste jogo:");
-            int quantidade = (int.Parse(Console.ReadLine()));
-            for(int i = 0; i < quantidade; ++i) {
-                Console.WriteLine("Digite seu nome: ");
+            int quantidade;
+            do
+            {
+                Console.WriteLine("Comece informando aqui abaixo a quantidade de jogadores deste jogo:");
+                quantidade = (int.Parse(Console.ReadLine()));
+
+                if (quantidade < 2)
+                {
+                    Console.WriteLine("Para o jogo ocorrer, é necessário haver mais de um jogador");
+                }
+
+            } while (quantidade < 2);
+
+
+
+            for (int i = 0; i < quantidade; ++i)
+            {
+                Console.WriteLine($"Digite o nome do(a) {i + 1}º jogador: ");
                 names.Add(Console.ReadLine());
-                Console.WriteLine("Digite seu apelido: ");
+                Console.WriteLine("Digite o apelido: ");
                 nickNames.Add(Console.ReadLine());
-                Console.WriteLine("Digite sua Idade: ");
+                Console.WriteLine("Digite a Idade: ");
                 ages.Add(int.Parse(Console.ReadLine()));
-                Console.WriteLine("Digite seu cpf: ");
+                Console.WriteLine("Digite o cpf: ");
                 cpfs.Add(Console.ReadLine());
 
                 Console.WriteLine("-----------------------------------");
                 Console.WriteLine("Jogador inscrito!");
                 Console.WriteLine("-----------------------------------");
-            };
+            }
+
         }
 
     }

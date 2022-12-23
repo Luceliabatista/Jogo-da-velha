@@ -20,6 +20,7 @@ namespace JogoDaVelha
         {
             Console.WriteLine("Seja bem vindo ao Jodo da Velha!");
             adicionarJogador novoJogador = new adicionarJogador();
+            Jogo jogada = new Jogo();
 
             int option;
             do
@@ -35,15 +36,15 @@ namespace JogoDaVelha
                     case 1:
                         novoJogador.AdicionarJogador(novoJogador.names, novoJogador.nickNames, novoJogador.ages, novoJogador.cpfs);
                         break;
-                        //case 2:
-                        //    ConsultarPontuacaoUltimoJogo();
-                        //    break;
-                        //case 3:
-                        //    ConsultarHistoricoDePontuacoes();
-                        //    break;
-                        //case 4:
-                        //    IniciarNovoJogo()
-                        //    break;
+                    //case 2:
+                    //    ConsultarPontuacaoUltimoJogo();
+                    //    break;
+                    //case 3:
+                    //    ConsultarHistoricoDePontuacoes();
+                    //    break;
+                    case 4:
+                        jogada.ExecutarJogada(jogada.names);
+                        break;
                 }
             } while (option != 0);
 
