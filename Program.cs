@@ -7,7 +7,6 @@ namespace JogoDaVelha
 {
     public class JogoDaVelha
     {
-
         static void Menu()
         {
             Console.WriteLine("Digite o número da opção desejada: ");
@@ -19,8 +18,8 @@ namespace JogoDaVelha
 
         public static void Main(string[] args)
         {
-
-            adicionarJogador add = new adicionarJogador();
+            Console.WriteLine("Seja bem vindo ao Jodo da Velha!");
+            adicionarJogador novoJogador = new adicionarJogador();
 
             int option;
             do
@@ -34,7 +33,7 @@ namespace JogoDaVelha
                         Console.WriteLine("Jogo encerrado!");
                         break;
                     case 1:
-                        add.AdicionarJogador(add.names, add.nickNames, add.ages, add.cpfs);
+                        novoJogador.AdicionarJogador(novoJogador.names, novoJogador.nickNames, novoJogador.ages, novoJogador.cpfs);
                         break;
                         //case 2:
                         //    ConsultarPontuacaoUltimoJogo();
