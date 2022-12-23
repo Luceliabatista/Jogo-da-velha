@@ -3,3 +3,13 @@ C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\
 C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.AssemblyInfoInputs.cache
 C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.AssemblyInfo.cs
 C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.csproj.CoreCompileInputs.cache
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\bin\Debug\net6.0\JogoDaVelha.exe
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\bin\Debug\net6.0\JogoDaVelha.deps.json
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\bin\Debug\net6.0\JogoDaVelha.runtimeconfig.json
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\bin\Debug\net6.0\JogoDaVelha.dll
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\bin\Debug\net6.0\JogoDaVelha.pdb
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.dll
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\refint\JogoDaVelha.dll
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.pdb
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\JogoDaVelha.genruntimeconfig.cache
+C:\Users\lucel\SharpCoders\JogoDaVelha\JogoDaVelha\JogoDaVelha\obj\Debug\net6.0\ref\JogoDaVelha.dll

@@ -3,15 +3,13 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 
-/*Jogo da velha
-- Adicionar jogadores (com nome)
-- Pontuação total (vitórias, empates e derrotas)
-- histórico das últimas partidas 
-- opção jogar*/
+namespace JogoDaVelha
+{
+    public class JogoDaVelha
+    {
 
-namespace JogoDaVelha {
-    public class JogoDaVelha {
-        static void Menu() {
+        static void Menu()
+        {
             Console.WriteLine("Digite o número da opção desejada: ");
             Console.WriteLine("1 - Adicionar jogadores");
             Console.WriteLine("2 - Pontuação do último jogo");
@@ -19,45 +17,36 @@ namespace JogoDaVelha {
             Console.WriteLine("4 - Jogar");
         }
 
-        public static void Main( string[] args ) {
-            Menu();
-            int option = int.Parse(Console.ReadLine());
+        public static void Main(string[] args)
+        {
 
-            switch (option) {
-                case 1:
-                    AdicinarJogador();
-                    break;
-                case 2:
-                    ConsultarPontuacaoUltimoJogo();
-                    break;
-                case 3:
-                    ConsultarHistoricoDePontuacoes();
-                    break;
-                case 4:
-                    IniciarNovoJogo()
-                    break;
-            }
+            adicionarJogador add = new adicionarJogador();
 
-            int resposta = int.Parse(Console.ReadLine());
-            if (resposta == 1) {
-                adicionarJogador novoJogador = new adicionarJogador();
-                Console.WriteLine("Digite seu nome: ");
-                novoJogador.NomeCompleto = Console.ReadLine();
-                Console.WriteLine("Digite seu cpf: ");
-                novoJogador.Cpf = Console.ReadLine();
-                Console.WriteLine("Digite sua Idade: ");
-                novoJogador.Idade = Console.ReadLine();
+            int option;
+            do
+            {
+                Menu();
+                option = int.Parse(Console.ReadLine());
 
-            }
-            //else
-            //if (resposta == 2) { }
-            //else
-            //if (resposta == 3) { }
-            //else
-            //if (resposta == 4) { 
-
-            //}
-            else { Console.WriteLine("Opção desconhecida"); }
+                switch (option)
+                {
+                    case 0:
+                        Console.WriteLine("Jogo encerrado!");
+                        break;
+                    case 1:
+                        add.AdicionarJogador(add.names, add.nickNames, add.ages, add.cpfs);
+                        break;
+                        //case 2:
+                        //    ConsultarPontuacaoUltimoJogo();
+                        //    break;
+                        //case 3:
+                        //    ConsultarHistoricoDePontuacoes();
+                        //    break;
+                        //case 4:
+                        //    IniciarNovoJogo()
+                        //    break;
+                }
+            } while (option != 0);
 
 
         }
