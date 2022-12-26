@@ -14,6 +14,8 @@ namespace JogoDaVelha
             Console.WriteLine("2 - Pontuação do último jogo");
             Console.WriteLine("3 - Histórico de pontuações");
             Console.WriteLine("4 - Jogar");
+            Console.WriteLine("0 - Encerrar jogo");
+
         }
 
         public static void Main(string[] args)
