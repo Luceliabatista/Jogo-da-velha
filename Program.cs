@@ -34,7 +34,7 @@ namespace JogoDaVelha
                         Console.WriteLine("Jogo encerrado!");
                         break;
                     case 1:
-                        novoJogador.AdicionarJogador(novoJogador.names, novoJogador.nickNames, novoJogador.ages, novoJogador.cpfs);
+                        novoJogador.AdicionarJogador(novoJogador.names, novoJogador.ages, novoJogador.cpfs);
                         break;
                     //case 2:
                     //    ConsultarPontuacaoUltimoJogo();
