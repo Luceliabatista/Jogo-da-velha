@@ -38,7 +38,7 @@ namespace JogoDaVelha
             }
 
         }
-        public void LerEscolhaDoUsuario()
+        public void EscolhaDoUsuario()
         {
             Console.WriteLine($"{vez} Agora é a ua ve de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
 
@@ -66,6 +66,18 @@ namespace JogoDaVelha
             return posicoes[indice] != 'O' && posicoes[indice] != 'X';
         }
 
+        public void RenderizarTabela()
+        {
+            Console.Clear();
+            Console.WriteLine(ObterTabela());
+        }
+
+        public string ObterTabela()
+        {
+            return $"__{posicoes[0]}__|__{posicoes[1]}__|__{posicoes[2]}__\n" +
+                   $"__{posicoes[3]}__|__{posicoes[4]}__|__{posicoes[5]}__\n" +
+                   $"  {posicoes[6]}  |  {posicoes[7]}  |  {posicoes[8]}  \n\n" +
+        }
     }
 }
 
