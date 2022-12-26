@@ -12,10 +12,10 @@ namespace JogoDaVelha
         public List<string> names;
         public List<string> ages;
         public List<string> cpfs;
-        private bool fimDeJogo;
-        private char[] posicoes;
-        private char vez;
-        private int quantidadePreenchida;
+        public bool fimDeJogo;
+        public char[] posicoes;
+        public char vez;
+        public int quantidadePreenchida;
 
 
         public void JogoDaVelha()
@@ -36,6 +36,34 @@ namespace JogoDaVelha
                 VerificarFimDeJogo();
                 MudarVez();
             }
+
+        }
+        public void LerEscolhaDoUsuario()
+        {
+            Console.WriteLine($"{vez} Agora é a ua ve de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
+
+            bool conversao = int.TryParse(Console.ReadLine(), out int posicaoEscolhida);
+
+            while (!conversao || !ValidarEscolhaDoUsuario(posicaoEscolhida))
+            {
+                Console.WriteLine($"Campo inválido, por favor escolha uma posição de 1 a 9, que ainda esteja disponível");
+                conversao = int.TryParse(Console.ReadLine(), out posicaoEscolhida);
+            }
+            PreencherEscolha(posicaoEscolhida);
+        }
+
+        public void PreencherEscolha(int posicaoEscolhida)
+        {
+            int indice = posicaoEscolhida - 1;
+            posicoes[indice] = vez;
+            quantidadePreenchida++;
+        }
+
+        public bool ValidarEscolhaDoUsuario(int posicaoEscolhida)
+        {
+            int indice = posicaoEscolhida - 1;
+
+            return posicoes[indice] != 'O' && posicoes[indice] != 'X';
         }
 
     }
