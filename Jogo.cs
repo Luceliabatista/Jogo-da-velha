@@ -14,7 +14,7 @@ namespace JogoDaVelha
         public List<string> cpfs;
         public bool fimDeJogo;
         public char[] posicoes;
-        public char vez;
+        public char jogador;
         public int quantidadePreenchida;
 
 
@@ -22,7 +22,7 @@ namespace JogoDaVelha
         {
             fimDeJogo = false;
             posicoes = new[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            vez = 'X';
+            jogador = 'X';
             quantidadePreenchida = 0;
         }
 
@@ -34,13 +34,13 @@ namespace JogoDaVelha
                 EscolhaDoUsuario();
                 RenderizarTabela();
                 VerificarFimDeJogo();
-                MudarVez();
+                MudarJogador();
             }
 
         }
         public void EscolhaDoUsuario()
         {
-            Console.WriteLine($"{vez} Agora é a ua ve de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
+            Console.WriteLine($"{jogador} Agora é a ua ve de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
 
             bool conversao = int.TryParse(Console.ReadLine(), out int posicaoEscolhida);
 
@@ -55,7 +55,7 @@ namespace JogoDaVelha
         public void PreencherEscolha(int posicaoEscolhida)
         {
             int indice = posicaoEscolhida - 1;
-            posicoes[indice] = vez;
+            posicoes[indice] = jogador;
             quantidadePreenchida++;
         }
 
@@ -77,6 +77,11 @@ namespace JogoDaVelha
             return $"__{posicoes[0]}__|__{posicoes[1]}__|__{posicoes[2]}__\n" +
                    $"__{posicoes[3]}__|__{posicoes[4]}__|__{posicoes[5]}__\n" +
                    $"  {posicoes[6]}  |  {posicoes[7]}  |  {posicoes[8]}  \n\n" +
+        }
+
+        public void MudarJogador()
+        {
+            jogador = jogador == 'X' ? 'O' : 'X';
         }
     }
 }
