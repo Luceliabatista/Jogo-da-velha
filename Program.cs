@@ -9,6 +9,7 @@ namespace JogoDaVelha
     {
         static void Menu()
         {
+            Console.Clear();
             Console.WriteLine("Digite o número da opção desejada: ");
             Console.WriteLine("1 - Adicionar jogadores");
             Console.WriteLine("2 - Pontuação do último jogo");

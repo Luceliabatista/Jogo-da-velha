@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JogoDaVelha
 {
@@ -14,7 +9,7 @@ namespace JogoDaVelha
         public List<int> ages = new List<int>();
         public List<string> cpfs = new List<string>();
         public bool fimDeJogo;
-        public char[] posicoes = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        public char[] posicoes = new char[9];
         public string cpfJogadorX, cpfJogadorO, jogador;
         public char icone;
         public int quantidadePreenchida;
@@ -36,27 +31,28 @@ namespace JogoDaVelha
 
         }
 
-        public void JogoDaVelha(List<char> posicoes)
-        {
-            fimDeJogo = false;
-            quantidadePreenchida = 0;
-        }
-
         public void ExecutarJogada(List<string> names, List<int> ages, List<string> cpfs)
         {
+            posicoes = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            fimDeJogo = false;
+            quantidadePreenchida = 0;
+
             DefinirJogador(names, cpfs);
-            while (!fimDeJogo)
+            Console.Clear();
+            do
             {
                 RenderizarTabela();
                 EscolhaDoUsuario();
                 RenderizarTabela();
                 VerificarFimDeJogo();
                 MudarJogador();
-            }
+
+            } while (!fimDeJogo);
         }
 
         public void DefinirJogador(List<string> names, List<string> cpfs)
         {
+
             Console.WriteLine($"Para iniciarmos o jogo, antes precisamos que defina quem são os usuários jogadores");
             Console.Write($"Digite o CPF do(a) jogador(a) X: ");
             cpfJogadorX = Console.ReadLine();
@@ -77,6 +73,7 @@ namespace JogoDaVelha
                 cpfJogadorX = names[indexX];
             }
 
+
             if (indexO == -1)
             {
                 Console.WriteLine("Jogador O ainda não cadastrado!");
@@ -86,6 +83,7 @@ namespace JogoDaVelha
             {
                 cpfJogadorO = names[indexO];
             }
+
         }
 
         public void MudarJogador()
@@ -100,15 +98,16 @@ namespace JogoDaVelha
             if (VitoriaDiagonal() || VitoriaHorizontal() || VitoriaVertical())
             {
                 fimDeJogo = true;
-                Console.WriteLine($"Fim de Jogo!! {jogador} é o vencedor");
-                return;
+                Console.WriteLine($"Fim de Jogo!! {jogador} é o vencedor\n\n");
             }
 
             if (quantidadePreenchida is 9)
             {
                 fimDeJogo = true;
-                Console.WriteLine("Fim de Jogo!! Resultado: Empate");
+                Console.WriteLine("Fim de Jogo!! Empate");
             }
+                Console.WriteLine("Para voltar ao menu principal, tecle ENTER");
+                Console.ReadLine();
         }
         public bool VitoriaHorizontal()
         {
@@ -145,7 +144,7 @@ namespace JogoDaVelha
             {
                 Console.WriteLine($"Jogador(a) {cpfJogadorX} Agora é a sua vez de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
             }
-            else
+            if (jogador == cpfJogadorO)
             {
                 Console.WriteLine($"Jogador(a) {cpfJogadorO} Agora é a sua vez de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
             }
