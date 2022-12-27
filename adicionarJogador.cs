@@ -16,19 +16,17 @@ namespace JogoDaVelha
         public void AdicionarJogador(List<string> names, List<int> ages, List<string> cpfs)
         {
 
-            for (int i = 0; i < 2; ++i)
-            {
-                Console.WriteLine($"Digite o nome do(a) {i + 1}º jogador: ");
-                names.Add(Console.ReadLine());
-                Console.WriteLine("Digite a Idade: ");
-                ages.Add(int.Parse(Console.ReadLine()));
-                Console.WriteLine("Digite o cpf: ");
-                cpfs.Add(Console.ReadLine());
+            Console.WriteLine($"CADASTRO DE JOGADOR(A)");
+            Console.WriteLine($"Digite o nome do(a) jogador(a): ");
+            names.Add(Console.ReadLine());
+            Console.WriteLine("Digite a Idade: ");
+            ages.Add(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Digite o cpf: ");
+            cpfs.Add(Console.ReadLine());
 
-                Console.WriteLine("-----------------------------------");
-                Console.WriteLine("Jogador inscrito!");
-                Console.WriteLine("-----------------------------------");
-            }
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("Jogador inscrito!");
+            Console.WriteLine("-----------------------------------");
 
         }
 
