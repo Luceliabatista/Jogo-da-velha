@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,8 @@ namespace JogoDaVelha
 
         adicionarJogador jogadorCadastrado = new adicionarJogador();
 
-        public List<string> names;
+        public List<string> names = new List<string>();
+        public List<string> cpfs = new List<string>();
         public bool fimDeJogo;
         public int[] posicoes = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         public string jogadorX, jogadorO, jogador;
@@ -24,9 +26,9 @@ namespace JogoDaVelha
             quantidadePreenchida = 0;
         }
 
-        public void ExecutarJogada(List<string> nome)
+        public void ExecutarJogada()
         {
-            DefinirJogador();
+            DefinirJogador(names, cpfs);
             while (!fimDeJogo)
             {
                 RenderizarTabela();
@@ -37,7 +39,7 @@ namespace JogoDaVelha
             }
         }
 
-        private void DefinirJogador()
+        private void DefinirJogador(List<string> names, List<string> cpfs)
         {
             Console.WriteLine($"Para iniciarmos o jogo, antes precisamos que defina quem são os usuários jogadores");
             Console.Write($"Digite o CPF do(a) jogador(a) X: ");
@@ -45,6 +47,21 @@ namespace JogoDaVelha
             Console.Write($"Digite o CPF do(a) jogador(a) O: ");
             jogadorO = Console.ReadLine();
             jogador = jogadorX;
+
+            int indexX = cpfs.FindIndex(cpf => cpf == jogadorX);
+            int indexO = cpfs.FindIndex(cpf => cpf == jogadorO);
+
+            if (indexX == -1 || indexO == -1)
+            {
+                Console.WriteLine("Jogador ainda não cadastrado!");
+                jogadorCadastrado.AdicionarJogador(jogadorCadastrado.names, jogadorCadastrado.ages, jogadorCadastrado.cpfs);
+            }
+            else
+            {
+                jogadorX = names[indexX];
+                jogadorO = names[indexO];
+            }
+
         }
 
         public void MudarJogador()
@@ -122,7 +139,6 @@ namespace JogoDaVelha
 
             return posicoes[indice] != 'O' && posicoes[indice] != 'X';
         }
-
         public void RenderizarTabela()
         {
             Console.Clear();

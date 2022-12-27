@@ -45,7 +45,7 @@ namespace JogoDaVelha
                     //    ConsultarHistoricoDePontuacoes();
                     //    break;
                     case 4:
-                        jogada.ExecutarJogada(jogada.names);
+                        jogada.ExecutarJogada();
                         break;
                 }
             } while (option != 0);
