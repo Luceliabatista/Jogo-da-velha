@@ -21,8 +21,7 @@ namespace JogoDaVelha
         public static void Main(string[] args)
         {
             Console.WriteLine("Seja bem vindo ao Jodo da Velha!");
-            adicionarJogador novoJogador = new adicionarJogador();
-            Jogo jogada = new Jogo();
+            Jogo jogoDaVelha = new Jogo();
 
             int option;
             do
@@ -36,7 +35,7 @@ namespace JogoDaVelha
                         Console.WriteLine("Jogo encerrado!");
                         break;
                     case 1:
-                        novoJogador.AdicionarJogador(novoJogador.names, novoJogador.ages, novoJogador.cpfs);
+                        jogoDaVelha.AdicionarJogador(jogoDaVelha.names, jogoDaVelha.ages, jogoDaVelha.cpfs);
                         break;
                     //case 2:
                     //    ConsultarPontuacaoUltimoJogo();
@@ -45,7 +44,7 @@ namespace JogoDaVelha
                     //    ConsultarHistoricoDePontuacoes();
                     //    break;
                     case 4:
-                        jogada.ExecutarJogada();
+                        jogoDaVelha.ExecutarJogada(jogoDaVelha.names, jogoDaVelha.ages, jogoDaVelha.cpfs);
                         break;
                 }
             } while (option != 0);

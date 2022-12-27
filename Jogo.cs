@@ -10,23 +10,39 @@ namespace JogoDaVelha
     internal class Jogo
     {
 
-        adicionarJogador jogadorCadastrado = new adicionarJogador();
-
         public List<string> names = new List<string>();
+        public List<int> ages = new List<int>();
         public List<string> cpfs = new List<string>();
         public bool fimDeJogo;
-        public int[] posicoes = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        public string jogadorX, jogadorO, jogador;
+        public char[] posicoes = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        public string cpfJogadorX, cpfJogadorO, jogador;
+        public char icone;
         public int quantidadePreenchida;
 
+        public void AdicionarJogador(List<string> names, List<int> ages, List<string> cpfs)
+        {
 
-        public void JogoDaVelha()
+            Console.WriteLine($"CADASTRO DE JOGADOR(A)");
+            Console.WriteLine($"Digite o nome do(a) jogador(a): ");
+            names.Add(Console.ReadLine());
+            Console.WriteLine("Digite a Idade: ");
+            ages.Add(int.Parse(Console.ReadLine()));
+            Console.WriteLine("Digite o cpf: ");
+            cpfs.Add(Console.ReadLine());
+
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("Jogador cadastrado!");
+            Console.WriteLine("-----------------------------------");
+
+        }
+
+        public void JogoDaVelha(List<char> posicoes)
         {
             fimDeJogo = false;
             quantidadePreenchida = 0;
         }
 
-        public void ExecutarJogada()
+        public void ExecutarJogada(List<string> names, List<int> ages, List<string> cpfs)
         {
             DefinirJogador(names, cpfs);
             while (!fimDeJogo)
@@ -39,34 +55,42 @@ namespace JogoDaVelha
             }
         }
 
-        private void DefinirJogador(List<string> names, List<string> cpfs)
+        public void DefinirJogador(List<string> names, List<string> cpfs)
         {
             Console.WriteLine($"Para iniciarmos o jogo, antes precisamos que defina quem são os usuários jogadores");
             Console.Write($"Digite o CPF do(a) jogador(a) X: ");
-            jogadorX = Console.ReadLine();
+            cpfJogadorX = Console.ReadLine();
             Console.Write($"Digite o CPF do(a) jogador(a) O: ");
-            jogadorO = Console.ReadLine();
-            jogador = jogadorX;
+            cpfJogadorO = Console.ReadLine();
+            jogador = cpfJogadorX;
 
-            int indexX = cpfs.FindIndex(cpf => cpf == jogadorX);
-            int indexO = cpfs.FindIndex(cpf => cpf == jogadorO);
+            int indexX = cpfs.FindIndex(cpf => cpf == cpfJogadorX);
+            int indexO = cpfs.FindIndex(cpf => cpf == cpfJogadorO);
 
-            if (indexX == -1 || indexO == -1)
+            if (indexX == -1)
             {
-                Console.WriteLine("Jogador ainda não cadastrado!");
-                jogadorCadastrado.AdicionarJogador(jogadorCadastrado.names, jogadorCadastrado.ages, jogadorCadastrado.cpfs);
+                Console.WriteLine("Jogador X ainda não cadastrado!");
+                AdicionarJogador(names, ages, cpfs);
             }
             else
             {
-                jogadorX = names[indexX];
-                jogadorO = names[indexO];
+                cpfJogadorX = names[indexX];
             }
 
+            if (indexO == -1)
+            {
+                Console.WriteLine("Jogador O ainda não cadastrado!");
+                AdicionarJogador(names, ages, cpfs);
+            }
+            else
+            {
+                cpfJogadorO = names[indexO];
+            }
         }
 
         public void MudarJogador()
         {
-            jogador = jogador == jogadorX ? jogadorO : jogadorX;
+            jogador = jogador == cpfJogadorX ? cpfJogadorO : cpfJogadorX;
         }
         public void VerificarFimDeJogo()
         {
@@ -114,8 +138,17 @@ namespace JogoDaVelha
         public void EscolhaDoUsuario()
         {
             Console.WriteLine($"Acima estão numeradas de 1 a 9 as posições disponiveis");
-            Console.WriteLine($"Jogador(a) {jogador} Agora é a sua vez de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
 
+            icone = jogador == cpfJogadorX ? 'X' : 'O';
+
+            if (jogador == cpfJogadorX)
+            {
+                Console.WriteLine($"Jogador(a) {cpfJogadorX} Agora é a sua vez de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
+            }
+            else
+            {
+                Console.WriteLine($"Jogador(a) {cpfJogadorO} Agora é a sua vez de jogar, escolha uma posição de 1 a 9, que ainda esteja disponível");
+            }
             bool conversao = int.TryParse(Console.ReadLine(), out int posicaoEscolhida);
 
             while (!conversao || !ValidarEscolhaDoUsuario(posicaoEscolhida))
@@ -129,7 +162,7 @@ namespace JogoDaVelha
         public void PreencherEscolha(int posicaoEscolhida)
         {
             int indice = posicaoEscolhida - 1;
-            posicoes[indice] = int.Parse(jogador);
+            posicoes[indice] = icone;
             quantidadePreenchida++;
         }
 
